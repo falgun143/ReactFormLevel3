@@ -10,16 +10,17 @@ const SurveyFormSummary = () => {
   return (
     <Box
       sx={{
-        padding: 4,
+        padding: 3,
         backgroundColor: "#E2BBE9",
         borderRadius: 2,
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        textAlign: "left",
       }}
     >
-      <Typography variant="h4">Survey Summary</Typography>
+      <Typography variant="h3" textAlign="center">Survey Summary</Typography>
       {data && (
         <>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" marginBottom={2}>
             Hi {data.fullname},
           </Typography>
           <Typography variant="body1" gutterBottom>
@@ -54,21 +55,35 @@ const SurveyFormSummary = () => {
               </Typography>
             </>
           )}
-          {(data.surveyTopic === "General Knowledge"||data.surveyTopic === "Technology"||data.surveyTopic === "Health") && (
+          {(data.surveyTopic === "General Knowledge" || data.surveyTopic === "Technology" || data.surveyTopic === "Health") && (
             <>
               <Typography variant="body1" gutterBottom>
                 <strong>Additional Questions:</strong>
               </Typography>
               {additionalQuestions && additionalQuestions.map((question: any, index: number) => (
-                <Typography key={index} variant="body1" gutterBottom>
+                <Typography   
+                  sx={{
+                  wordWrap: "break-word",   
+                }} 
+                key={index} 
+                variant="body1" 
+                gutterBottom>
                   {index + 1}. {question.question}
                 </Typography>
               ))}
             </>
           )}
-          <Typography variant="body1" gutterBottom>
-            <strong>Feedback:</strong> {data.feedback}
-          </Typography>
+          <Box>
+            <Typography
+              variant="body1"
+              gutterBottom
+              sx={{
+                wordWrap: "break-word",
+              }}
+            >
+              <strong>Feedback:</strong> {data.feedback}
+            </Typography>
+          </Box>
         </>
       )}
     </Box>

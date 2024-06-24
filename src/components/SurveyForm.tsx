@@ -51,12 +51,12 @@ const SurveyForm = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            width: {
-              xs: 400,
+            minWidth: {
+              xs: 250,
               sm: 480,
-              md: 550,
-              lg: 650,
-              xl: 750,
+              md: 520,
+              lg: 600,
+              xl: 700,
             },
             border: 0.1,
             borderColor: "grey.400",
